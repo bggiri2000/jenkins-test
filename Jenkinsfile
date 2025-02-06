@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        GOOGLE_CREDENTIALS = credentials('gcp-service-account') // Reference the ID of your credentials
+        GOOGLE_CREDENTIALS = credentials('gcp-service-accountjk') // Reference the ID of your credentials
     }
 
     parameters {
@@ -51,7 +51,7 @@ pipeline {
             steps {
                 script {
                     // Authenticate with Google Cloud using the service account credentials
-                    withCredentials([file(credentialsId: 'gcp-service-account', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
+                    withCredentials([file(credentialsId: 'gcp-service-accountjk', variable: 'GOOGLE_APPLICATION_CREDENTIALS')]) {
                         // Authenticate with Google Cloud SDK
                         sh '''
                             gcloud auth activate-service-account --key-file=$GOOGLE_APPLICATION_CREDENTIALS
